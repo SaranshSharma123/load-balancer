@@ -1,0 +1,21 @@
+{
+  "name": "layer7-load-balancer",
+  "version": "1.0.0",
+  "description": "Production-Grade Layer 7 Load Balancer with Real-Time Monitoring Dashboard",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "demo": "node demo-backends.js",
+    "test": "node test-load.js",
+    "test:phases": "node test-load.js --phases",
+    "test:heavy": "node test-load.js --requests 2000 --concurrency 200"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy": "^1.18.1",
+    "socket.io": "^4.7.4",
+    "cors": "^2.8.5"
+  }
+}

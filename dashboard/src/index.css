@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-dark-900 text-gray-100 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-500 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-400;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-800/60 backdrop-blur-xl border border-dark-600/50 rounded-2xl;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply border-accent-500/30;
+    box-shadow:
+      0 0 0 1px rgba(99, 102, 241, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(99, 102, 241, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .status-healthy {
+    @apply bg-healthy/10 text-healthy border border-healthy/20;
+  }
+
+  .status-unhealthy {
+    @apply bg-unhealthy/10 text-unhealthy border border-unhealthy/20;
+  }
+
+  .status-disabled {
+    @apply bg-gray-500/10 text-gray-400 border border-gray-500/20;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold font-mono tracking-tight;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pulse-dot {
+    @apply relative inline-flex h-3 w-3;
+  }
+  .pulse-dot::before {
+    content: '';
+    @apply absolute inset-0 rounded-full animate-ping;
+  }
+  .pulse-dot::after {
+    content: '';
+    @apply relative inline-flex rounded-full h-3 w-3;
+  }
+
+  .pulse-dot.healthy::before {
+    @apply bg-healthy/40;
+  }
+  .pulse-dot.healthy::after {
+    @apply bg-healthy;
+  }
+  .pulse-dot.unhealthy::before {
+    @apply bg-unhealthy/40;
+  }
+  .pulse-dot.unhealthy::after {
+    @apply bg-unhealthy;
+  }
+}
