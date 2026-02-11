@@ -113,7 +113,7 @@ load-balancer/
 ### Install
 
 ```bash
-git clone https://github.com/your-username/load-balancer.git
+git clone https://github.com/SaranshSharma123/load-balancer.git
 cd load-balancer
 
 # Backend
